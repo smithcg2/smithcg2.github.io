@@ -1,0 +1,72 @@
+/**
+ * Color Scheme:
+ * HSL 
+ * $color1: hsla(37%, 16%, 28%, 1); - Dark Brown
+ * $color2: hsla(139%, 17%, 37%, 1); - Dark Green
+ * $color3: hsla(149%, 21%, 54%, 1); - Light Green
+ * $color4: hsla(35%, 53%, 69%, 1); - Tan/Camel
+ * $color5: hsla(15%, 55%, 64%, 1); - Dusty Rose/Pink
+ *
+ * RGB
+ * $color1: rgba(84, 75, 61, 1); - Dark Brown
+ * $color2: rgba(78, 110, 88, 1); - Dark Green
+ * $color3: rgba(112, 162, 136, 1); - Light Green
+ * $color4: rgba(218, 183, 133, 1); - Tan/Camel
+ * $color5: rgba(213, 137, 111, 1); - Dusty Rose/Pink
+ *
+ */
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    margin: 0%;
+    width: 100%;
+    background-color: rgba(84, 75, 61, 1);
+    color: white;
+}
+
+#wrapper
+{
+    padding: 25px;
+    //width: 100%;
+}
+
+#header
+{
+    width: 100%;
+    background-color: rgba(78, 110, 88, 1);
+}
+
+#title
+{
+    font-size: 200%;
+    color: rgba(218, 183, 133, 1);
+    padding: 20px;
+}
+
+#businessinfo
+{
+    font-size: 150%;
+    margin: 0 auto;
+    padding: 20px;
+    width: 90%;
+    background-color: rgba(218, 183, 133, 1);
+    text-align: center;
+    color: black;
+}
+
+#start
+{
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    width: 20%;
+    background-color: rgba(112, 162, 136, 1);
+    font-size: 200%;
+}
+
