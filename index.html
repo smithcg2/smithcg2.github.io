@@ -3,29 +3,41 @@
 <head>
     <meta charset="utf-8">
     <title>Property Listing Declaration Form</title>
+    <!--
     <link href="stylesheet.css" type="text/css" rel="stylesheet">
+    -->
 </head>
 <body>
 <div id="header">
-<span id="title">Title</span>
+<span id="title">Property Listing Declaration Form</span>
 </div>
 <div id="wrapper">
 <div id="businessinfo">
+<hr>
+<p id="instructions">
+Instructions will be provided here.  Either statically or using javascript to append a variable to this element.
+</p>
+<hr>
 <p>
 Business information will be displayed here including:<br>
-<span id="compinfo">Company Information</span><br>
-<span id="buscat">Business Category</span><br>
-<span id="bustype">Business Type</span><br>
-<span id="fileyear">Year of Filing</span><br>
+<p id="compinfo">Company Information</p>
+<p id="buscat">Business Category</p>
+<p id="bustype">Business Type</p>
+<p id="fileyear">Year of Filing</p>
 etc.<br>
 This will be filled in using jQuery and/or Javascript.
 </p>
+<br>
+<button type="button" id="updateinfo">Update Business Information</button>
+</div>
 </div>
 <br>
-<div id="start">
+<div id="bottomnav">
+<a href="section.html">
+<button type="button" id="start">
 <!--This area will have a click event handler to link to the next page which will start the form. -->
 START
-</div>
+</button></a>
 </div>
 </body>
 </html>
