@@ -88,6 +88,8 @@ body
     height: 100%;
     background-color: #242F40;
     text-align: center;
+    max-height: 70%;
+    min-height: 70%;
 }
 
 #start, #next, #save, #back
@@ -112,12 +114,37 @@ body
 
 #bottomnav
 {
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     margin: 20px 0px;
     text-align: center;
+}
+
+#schedule
+{
+    overflow-y: auto;
+}
+
+#group
+{
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+}
+
+#group th, td
+{
+    background-color: #929292;
+    border: solid 1px white;
+}
+
+#group input
+{
+    font-size: 100%;
+    width: 90%;
+    margin: 10px;
 }
 
 #instructions
