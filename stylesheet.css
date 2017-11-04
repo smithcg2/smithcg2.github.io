@@ -76,6 +76,7 @@ body
 
 #home
 {
+    cursor: url('home.png');
     float: left;
 }
 
