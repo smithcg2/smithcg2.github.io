@@ -25,7 +25,7 @@ var instructions = {
     "integral part of the leased fee real estate upon expiration or termination of the current " +
     "lease, but which are the property of the current lessee who installed it. (Examples are " +
     "lavatories installed by lessee in a barbershop, special lighting, or dropped ceiling.) If you " +
-    "have no leasehold improvements write "none". Contact the appropriate county to " +
+    "have no leasehold improvements write none. Contact the appropriate county to " +
     "determine if you question if leasehold improvements have already been appraised as real " +
     "property. ",
     a5: "",
@@ -92,3 +92,70 @@ var section = {
     c1: "Schedule C:\nPROPERTY IN YOUR POSSESSION, BUT OWNED BY OTHERS",
     d1: "Affirmation"
 }
+
+function setHeaderAndInstructions() {
+    switch(pageid) {
+        case 1:
+        instruction = instructions.a1;
+        header = section.a1;
+        break;
+        case 2:
+        instruction = instructions.a2;
+        header = section.a2;
+        break;
+        case 3:
+        instruction = instructions.a3;
+        header = section.a3;
+        break;
+        case 4:
+        instruction = instructions.a4;
+        header = section.a4;
+        break;
+        case 5:
+        instruction = instructions.a5;
+        header = section.a5;
+        break;
+        case 6:
+        instruction = instructions.a6;
+        header = section.a6;
+        break;
+        case 7:
+        instruction = instructions.a7;
+        header = section.a7;
+        break;
+        case 8:
+        instruction = instructions.a8;
+        header = section.a8;
+        break;
+        case 9:
+        instruction = instructions.a9;
+        header = section.a9;
+        break;
+        case 10:
+        instruction = instructions.b1;
+        header = section.b1;
+        break;
+        case 11:
+        instruction = instructions.b2;
+        header = section.b2;
+        break;
+        case 12:
+        instruction = instructions.b3;
+        header = section.b3;
+        break;
+        case 13:
+        instruction = instructions.b4;
+        header = section.b4;
+        break;
+        case 14:
+        instruction = instructions.c1;
+        header = section.c1;
+        break;
+        case 15:
+        instruction = instructions.d1;
+        header = section.d1;
+        break;       
+    }
+}
+
+

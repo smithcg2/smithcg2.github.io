@@ -5,20 +5,23 @@
     <title>Property Listing Declaration Form - Machinery &amp; Equipment</title>
     <link href="stylesheet.css" type="text/css" rel="stylesheet">
     <script src="instructions.js"></script>
+    <script src="initPage.js"></script>
 </head>
 <body>
 <div id="header">
+<span id="home">HOME</span>
 <span id="title">Dynamically Inserted With Javascript</span>
 </div>
 <div id="wrapper">
 <div id="section">
 <hr>
-<p id="instructions">
-Instructions will be provided here.  Either statically or using javascript to append a variable to this element.
-</p>
+<p id="instructions">Dynamically Inserted With Javascript.</p>
 <hr>
-A table will be appended here with input elements showing the currently stored values as the default and allowing modification.
-<br>This will be filled in using jQuery and/or Javascript.
+<!--Dynamically Inserted With Javascript-->
+<div id="table">
+<!-- A table will be appended here with input elements showing the currently stored values as the default and allowing modification.
+<br>This will be filled in using jQuery and/or Javascript. -->
+</div>
 </div>
 <br>
 <div id="bottomnav">
@@ -37,7 +40,8 @@ NEXT SECTION
 <br>
 <br>
 <div id="progress">
-A progress bar will appear here that will allow users to jump between sections.  Implemented using Javascript.
+<!-- A progress bar will appear here that will allow users to jump between sections.  Implemented using Javascript. -->
+<table id="progresstable"></table>
 </div>
 </div>
 </div>
