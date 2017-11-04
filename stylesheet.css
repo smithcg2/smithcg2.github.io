@@ -79,6 +79,11 @@ body
     float: left;
 }
 
+#instructions
+{
+    padding: 10px;
+}
+
 #businessinfo, #section
 {
     font-size: 150%;

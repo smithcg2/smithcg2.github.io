@@ -6,7 +6,7 @@ var instructions = {
     "For example, a manufacturer of textiles purchased a knitting machine in October 2004 for " +
     "$10,000. The sales tax was $200, shipping charges were $200, and installation costs " +
     "were $200. The total cost that the manufacturer should report is $10,600, if there were no " +
-    "other costs incurred. The $10,600 should be added in group (1) to the 2004 current year's " +
+    "other costs incurred. The $10,600 should be added in group (1) to the current year's " +
     "cost column.",
     a2: "This group is for reporting the costs of all furniture & fixtures and small office machines " +
     "used in the business operation. This includes, but is not limited to, file cabinets, desks, " +
