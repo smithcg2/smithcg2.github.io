@@ -38,7 +38,12 @@ function initPage()
     if(pageid == 15) //remove next and save buttons and replace save with submit button
     {
         next.style.display = "none";
-        //save.replaceChild(document.createTextNode("SUBMIT"), save.childNodes[0]);
+        save.innerHTML = "SUBMIT";
+    }
+    else
+    {
+        next.style.display = "inline";
+        save.innerHTML = "SAVE AND FINISH LATER";
     }
     //call init Schedule A, Schedule B, Schedule C, or Affirmation depending on current pageid.
     if(pageid <= 9)
@@ -62,6 +67,7 @@ function initPage()
         affirmation();
     }
     makeTableScroll();
+    //dynamicElements();
 }
 
 
@@ -109,6 +115,29 @@ function buildProgressBar()
     container.replaceChild(newtable, container.getElementsByTagName("table")[0]);
 }
 
+/**
+ * Function that will modify elements to make the page more mobile friendly or better to look at.
+ */
+function dynamicElements()
+{
+    footer();
+}
+
+function footer()
+{
+    var section = document.getElementById("section");
+    var footer = document.getElementById("bottomnav");
+    var overlap = section.getBoundingClientRect().bottom + 30 >= footer.getBoundingClientRect().top;
+    if(overlap)
+    {
+        footer.style.position = "relative";
+    }
+    else
+    {
+        footer.style.position = "absolute";
+    }
+}
+
 function savefields()
 {
     //stuff will go here to cycle through each table field and save it to local storage.
@@ -121,6 +150,7 @@ function loadfields()
 
 function goHome()
 {
+    //create a page overlay that tells the user the information has been saved and they are being taken back to the home page.
     location.href = "index.html";
 }
 
@@ -160,10 +190,39 @@ function clickHandler(event)
         else if (clicked.parentNode.parentNode.id === "progresstable")
         {
             pageid = parseInt(clicked.id);
+            redirect();
             initPage();
         }
     }
 }
 
+/**
+ * Function to display a popup if a user tries to refresh asking them if they would like to save the information before the page is reloaded.
+ */
+function savepopup()
+{
+    alert("You are about to leave (or refresh) this page.  Would you like to save the currently stored information? You will then be taken back to home.");
+
+}
+
+/**
+ * Handle a refresh by alerting the user and then either saving or discarding the information depending on the users choice.
+ */
+function refresh()
+{
+    
+    debugger;
+    var save = true;
+    savepopup();
+    if(save)
+    {
+        savefields();
+    }
+    pageid = pageid;
+    initPage();
+}
+
 window.addEventListener("load", initPage);
 window.addEventListener("click", clickHandler);
+window.addEventListener("resize", dynamicElements);
+//window.onbeforeunload = refresh();
