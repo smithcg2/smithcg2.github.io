@@ -90,10 +90,14 @@ body
 #instructions
 {
     padding: 10px;
+    font-size: 70%;
+    text-align: justify;
+    margin: 0 auto;
 }
 
 #businessinfo, #section
 {
+    border-radius: 10px;
     font-size: 150%;
     margin: 0 auto;
     padding: 20px;
@@ -107,6 +111,7 @@ body
 
 #start, #next, #save, #back
 {
+    border-radius: 10px;
     padding: 10px;
     text-align: center;
     background-color: #CCA43B;
@@ -118,23 +123,24 @@ body
 
 #updateinfo
 {
-padding: 10px;
-         text-align: center;
-         background-color: #CCA43B;
-         font-size: 70%;
-width: 20%;
-color: #242F40;
-cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: #CCA43B;
+    font-size: 70%;
+    width: 20%;
+    color: #242F40;
+    cursor: pointer;
 }
 
 #bottomnav
 {
-position: absolute;
-left: 0;
-bottom: 0;
-width: 100%;
-margin: 20px 0px;
-        text-align: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 20px 0px;
+    text-align: center;
 }
 
 #schedule
@@ -145,8 +151,8 @@ margin: 20px 0px;
 #group
 {
     border-collapse: collapse;
-width: 100%;
-margin: auto;
+    width: 100%;
+    margin: auto;
 }
 
 #group th, td
@@ -160,12 +166,5 @@ border: solid 1px white;
     font-size: 100%;
 width: 90%;
 margin: 10px;
-}
-
-#instructions
-{
-    font-size: 70%;
-    text-align: justify;
-margin: 0 auto;
 }
 

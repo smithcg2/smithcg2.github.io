@@ -127,8 +127,9 @@ function footer()
 {
     var section = document.getElementById("section");
     var footer = document.getElementById("bottomnav");
+
     var overlap = section.getBoundingClientRect().bottom + 30 >= footer.getBoundingClientRect().top;
-    if(overlap)
+    if(overlap || window.innerHeight <= 400)
     {
         footer.style.position = "relative";
     }
@@ -165,7 +166,6 @@ function clickHandler(event)
     if(containsID)
     {
         var clicked = document.getElementById(event.target.id);
-        console.log(clicked.id);
         if(clicked.id == "next")
         {
             savefields();
@@ -190,7 +190,6 @@ function clickHandler(event)
         else if (clicked.parentNode.parentNode.id === "progresstable")
         {
             pageid = parseInt(clicked.id);
-            redirect();
             initPage();
         }
     }
