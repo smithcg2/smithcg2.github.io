@@ -109,7 +109,7 @@ body
     min-height: 70%;
 }
 
-#start, #next, #save, #back
+#start, #next, #save, #back, #SaveInfo
 {
     border-radius: 10px;
     padding: 10px;
