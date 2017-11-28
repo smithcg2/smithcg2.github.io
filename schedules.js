@@ -23,6 +23,7 @@ function scheduleA()
     var container = document.getElementById("schedule");
     var newtable = document.createElement("table");
     var headerrow = document.createElement("tr");
+    headerrow.setAttribute("id", "header");
     var head = ["Year Acquired", "Cost", "Additions", "Deletions"];
     for (var i = 0; i < head.length; i++)
     {
@@ -60,6 +61,7 @@ function scheduleB()
     var container = document.getElementById("schedule");
     var newtable = document.createElement("table");
     var headerrow = document.createElement("tr");
+    headerrow.setAttribute("id", "header");
     var head = ["Year", "Make", "Model", "Body/Size", "Title #", "Vehicle Identification Number", "Year Purchased", "Purchase Price"];
     for (var i = 0; i < head.length; i++)
     {
@@ -93,6 +95,7 @@ function scheduleB4()
     var container = document.getElementById("schedule");
     var newtable = document.createElement("table");
     var headerrow = document.createElement("tr");
+    headerrow.setAttribute("id", "header");
     var head = ["Type", "Cost"];
     for (var i = 0; i < head.length; i++)
     {
@@ -130,6 +133,7 @@ function scheduleC()
     var container = document.getElementById("schedule");
     var newtable = document.createElement("table");
     var headerrow = document.createElement("tr");
+    headerrow.setAttribute("id", "header");
     var head = ["Name And Address Of Owner", "Description Of The Property", "Lease # Or Account #", "Monthly Payment", "Cost New (Quoted)", "Start Lease Date", "End Lease Date"];
     for (var i = 0; i < head.length; i++)
     {
