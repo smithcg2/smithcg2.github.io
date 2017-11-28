@@ -121,6 +121,11 @@ body
     cursor: pointer;
 }
 
+#SaveInfo
+{
+    font-size: 75%;
+}
+
 #updateinfo
 {
     border-radius: 10px;
@@ -152,6 +157,13 @@ body
 {
     border-collapse: collapse;
     width: 100%;
+    margin: auto;
+}
+
+#bustable
+{
+    border-collapse: collapse;
+    width: 50%;
     margin: auto;
 }
 
