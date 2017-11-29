@@ -4,11 +4,32 @@ var categories = ["Retail", "Wholesale", "Manufacturing", "Service", "Leasing/Re
 var types = ["Corporation", "Sole Proprietorship", "Partnership", "Unincorporated Association", "Other"];
 
 function buildinfo(){
+    var container = $("#businfo");
+    var subel = $("<div>");
+    $.each(labels, function(i, el) {
+        var line = $("<p>");
+        line.text(el + " : " + localStorage.getItem(ids[i]));
+        line.appendTo(subel);
+    });
+    var button = $("<button>", {id: "updateinfo", class: "wide"});
+    button.text("Update Information");
+    button.appendTo(subel);
+    button.click(function() { 
+        buildtable();
+    });
+    container.replaceWith(subel);
+}
 
+function saveinfo() {
+    $.each(ids, function(i, el) {
+        var field = $("#" + el)[0];
+        localStorage.setItem(el, field.value);  
+    });
 }
 
 function buildtable() {
     var container = $("#businfo");
+    var subel = $("<div>");
     var table = $("<table>", {id: "bustable"});
     for (var i = 0; i < labels.length; i++)
     {
@@ -42,14 +63,35 @@ function buildtable() {
         row.appendTo(table);
     }
 
-    table.appendTo(container);
+    table.appendTo(subel);
     var button = $("<button>", {id: "SaveInfo", class: "savebutton"});
     button.text("Save Information");
-    button.appendTo(container);
+    button.appendTo(subel);
+    button.click(function() { 
+        saveinfo();
+        buildinfo();
+    });
+    container.replaceWith(subel);
 }
 
 function init() {
-    buildtable();
+ //   buildtable();
+ //   buildinfo();
+   var needinfo = false;
+   $.each(ids, function(key, value) {
+         if (localStorage.getItem(value) == null)
+         {
+             needinfo = true;
+         }
+         if (needinfo)
+         {
+             buildtable();
+         }
+         else
+         {
+             buildinfo();
+         }
+    });
 }
 
 window.onload = init;
