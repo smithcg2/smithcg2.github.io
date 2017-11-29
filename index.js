@@ -1,5 +1,5 @@
-var labels = ["Company Information", "Business Category", "Business Type", "Year Of Filing", "Address"];
-var ids = ["compinfo", "buscat", "bustype", "fileyear", "address"];
+var labels = ["Company Name", "Business Category", "Business Type", "Year Of Filing", "Address"];
+var ids = ["compname", "buscat", "bustype", "fileyear", "address"];
 var categories = ["Retail", "Wholesale", "Manufacturing", "Service", "Leasing/Rental", "Farming", "Other"];
 var types = ["Corporation", "Sole Proprietorship", "Partnership", "Unincorporated Association", "Other"];
 
@@ -7,9 +7,13 @@ function buildinfo(){
     var container = $("#businfo");
     var subel = $("<div>", {id: "businfo"});
     $.each(labels, function(i, el) {
-        var line = $("<p>");
-        line.text(el + " : " + localStorage.getItem(ids[i]));
-        line.appendTo(subel);
+        var line1 = $("<h5>");
+        line1.text(el + ":");
+        var line2 = $("<h3>");
+        line2.text(localStorage.getItem(ids[i]));
+        line1.appendTo(subel);
+        line2.appendTo(subel);
+        $("<br/>").appendTo(subel);
     });
     var button = $("<button>", {id: "updateinfo", class: "wide"});
     button.text("Update Information");
@@ -96,8 +100,6 @@ function buildtable() {
 }
 
 function init() {
- //   buildtable();
- //   buildinfo();
    var needinfo = false;
    $.each(ids, function(key, value) {
          if (localStorage.getItem(value) == null)
@@ -115,4 +117,26 @@ function init() {
     });
 }
 
+function dynamicElements()
+{
+    footer();
+}
+
+function footer()
+{
+    var section = document.getElementById("businessinfo");
+    var footer = document.getElementById("bottomnav");
+
+    var overlap = section.getBoundingClientRect().bottom + 30 >= footer.getBoundingClientRect().top;
+    if(overlap || window.innerHeight <= 600)
+    {
+        footer.style.position = "relative";
+    }
+    else
+    {
+        footer.style.position = "absolute";
+    }
+}
+
 window.onload = init;
+window.addEventListener("resize", dynamicElements);

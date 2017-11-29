@@ -64,7 +64,6 @@ body
 #wrapper
 {
     padding: 25px;
-    //width: 100%;
 }
 
 #header
@@ -164,7 +163,43 @@ body
 {
     border-collapse: collapse;
     width: 50%;
-    margin: auto;
+    margin: 20px auto;
+}
+
+#bustable input, select
+{
+    width: 90%;
+    margin: 10px;
+    font-size: 90%;
+}
+
+@media only screen and (max-width: 800px)
+{
+    #bustable, #schedule
+    {
+        width: 100%;
+    }
+
+    #group
+    {
+        width: 100%;
+    }
+
+    #title, #home
+    {
+        font-size: 120%;
+        color: #CCA43B;
+    }
+
+    *
+    {
+        font-size: 90%;
+    }
+}
+
+#bustable td
+{
+    width: 50%;
 }
 
 #group th, td

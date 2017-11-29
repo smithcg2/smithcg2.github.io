@@ -67,7 +67,7 @@ function initPage()
         affirmation();
     }
     makeTableScroll();
-    //dynamicElements();
+    dynamicElements();
 }
 
 
@@ -129,7 +129,7 @@ function footer()
     var footer = document.getElementById("bottomnav");
 
     var overlap = section.getBoundingClientRect().bottom + 30 >= footer.getBoundingClientRect().top;
-    if(overlap || window.innerHeight <= 400)
+    if(overlap || window.innerHeight <= 600)
     {
         footer.style.position = "relative";
     }
@@ -141,12 +141,48 @@ function footer()
 
 function savefields()
 {
-    //stuff will go here to cycle through each table field and save it to local storage.
+    var rowsToSave = {};
+    var table = $("#group")[0];
+    $.each(table.rows, function(key, value) {
+        var saverow = false;
+        if(value.id == "")
+            {
+            $.each(value.getElementsByTagName("td"), function(i, cell) {
+                    if(cell.getElementsByTagName("input")[0].value != "")
+                    {
+                        saverow = true;
+                    }
+                });
+                if(saverow)
+                {
+                    var vals = [];
+                    $.each(value.getElementsByTagName("input"), function(index, val) {
+                        vals[index] = val.value;
+                    });
+                    rowsToSave[key] = vals;
+                }
+            }
+    });
+    localStorage.setItem(pageid, JSON.stringify(rowsToSave));
 }
 
 function loadfields()
 {
-    //stuff will go here to cycle through local storage and initialize the table inputs with retrieved values.
+    if(localStorage.getItem(pageid) != null)
+    {
+        var data = JSON.parse(localStorage.getItem(pageid));
+        var table = $("#group")[0];
+        var rows = table.rows;
+        for(row in data)
+        {
+            var curr = rows[row];
+            var inputs = curr.getElementsByTagName("input");
+            for(value in data[row])
+            {
+                inputs[value].value = data[row][value];
+            }
+        }
+    }
 }
 
 function goHome()
@@ -185,10 +221,12 @@ function clickHandler(event)
         }
         else if (clicked.id === "home")
         {
+            savefields();
             goHome();
         }
         else if (clicked.parentNode.parentNode.id === "progresstable")
         {
+            savefields();
             pageid = parseInt(clicked.id);
             initPage();
         }

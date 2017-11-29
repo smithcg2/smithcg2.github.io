@@ -53,6 +53,7 @@ function scheduleA()
     totalrow.setAttribute("id", "total");
     newtable.appendChild(totalrow);
     container.replaceChild(newtable, container.getElementsByTagName("table")[0]);
+    loadfields();
     updateTotal();
 }
 
@@ -88,6 +89,7 @@ function scheduleB()
         newtable.appendChild(row);
     }
     container.replaceChild(newtable, container.getElementsByTagName("table")[0]);
+    loadfields();
 }
 
 function scheduleB4()
@@ -125,6 +127,7 @@ function scheduleB4()
     totalrow.setAttribute("id", "total");
     newtable.appendChild(totalrow);
     container.replaceChild(newtable, container.getElementsByTagName("table")[0]);
+    loadfields();
     updateTotal();
 }
 
@@ -160,6 +163,7 @@ function scheduleC()
         newtable.appendChild(row);
     }
     container.replaceChild(newtable, container.getElementsByTagName("table")[0]);
+    loadfields();
 }
 
 function affirmation()
