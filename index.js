@@ -5,7 +5,7 @@ var types = ["Corporation", "Sole Proprietorship", "Partnership", "Unincorporate
 
 function buildinfo(){
     var container = $("#businfo");
-    var subel = $("<div>");
+    var subel = $("<div>", {id: "businfo"});
     $.each(labels, function(i, el) {
         var line = $("<p>");
         line.text(el + " : " + localStorage.getItem(ids[i]));
@@ -29,7 +29,7 @@ function saveinfo() {
 
 function buildtable() {
     var container = $("#businfo");
-    var subel = $("<div>");
+    var subel = $("<div>", {id: "businfo"});
     var table = $("<table>", {id: "bustable"});
     for (var i = 0; i < labels.length; i++)
     {
@@ -40,23 +40,44 @@ function buildtable() {
         var cell2 = $("<td>");
         
         var input;
+        var initvalue = "";
+        if (localStorage.getItem(ids[i]) != null)
+        {
+            initvalue = localStorage.getItem(ids[i]);
+        }
         if (ids[i] == "bustype")
         {
             input = $("<select>", {id: ids[i]});
             $.each(types, function(i, option) {
-                input.append("<option>" + option + "</option>");
+                if (initvalue == option)
+                {
+                    input.append("<option selected = 'selected'>" + option + "</option>");
+                }
+                else
+                {
+                    input.append("<option>" + option + "</option>");
+                }
             });
+            input.attr("selected", initvalue);
         }
         else if (ids[i] == "buscat")
         {
             input = $("<select>", {id: ids[i]});
             $.each(categories, function(i, option) {
-                input.append("<option>" + option + "</option>");
+                if (initvalue == option)
+                {
+                    input.append("<option selected = 'selected'>" + option + "</option>");
+                }
+                else
+                {
+                    input.append("<option>" + option + "</option>");
+                }
             });
         }
         else
         {
             input = $("<input>", {id: ids[i]});
+            input.attr("value", initvalue);
         }
         input.appendTo(cell2);
         cell2.appendTo(row);
