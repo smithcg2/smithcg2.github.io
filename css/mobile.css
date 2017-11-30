@@ -1,0 +1,57 @@
+@media only screen and (max-width: 800px)
+{
+    *
+    {
+        font-size: 95%;
+    }
+
+    #wrapper
+    {
+        padding: 0px;
+        width: 100%;
+    }
+
+    #section, #businessinfo
+    {
+        border-radius: 0px;
+        padding: 0px;
+        width: 100%;
+    }
+
+    #bustable, #schedule
+    {
+        width: 100%;
+    }
+
+    #group
+    {
+        width: 100%;
+    }
+
+    #title, #home
+    {
+        font-size: 120%;
+        color: #CCA43B;
+    }
+
+    [class="nav"], [class="wide"], [class="savebutton"], #updateinfo
+    {
+        width: 30%;
+        //font-size: 70%;
+    }
+
+    #start, #next, #save, #back, #SaveInfo
+    {
+        font-size: 90%;
+        //border-radius: 0;
+    }
+}
+
+@media only screen and (max-height: 600px)
+{
+    #bottomnav
+    {
+        position: relative;
+    }
+}
+
