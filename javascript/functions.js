@@ -43,8 +43,14 @@ function initPage()
     }
     else
     {
+        var submit = $("#submit")[0];
+        if (submit != null)
+        {
+            submit.id = "save";
+    var save = document.getElementById("save");
         next.style.display = "inline";
         save.innerHTML = "SAVE";
+        }
     }
     //call init Schedule A, Schedule B, Schedule C, or Affirmation depending on current pageid.
     if(pageid <= 9)
