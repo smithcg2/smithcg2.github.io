@@ -18,6 +18,21 @@ function makeTableScroll() {
     }
 }
 
+function makerow(table, elements)
+{
+        var row = document.createElement("tr");
+        for(var j = 0; j < elements.length; j++)
+        {
+            var cell = document.createElement("td");
+            var input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.setAttribute("class", elements[j]);
+            cell.appendChild(input);
+            row.appendChild(cell);
+        }
+        table.appendChild(row);
+}
+
 function scheduleA()
 {
     var container = document.getElementById("schedule");
@@ -37,17 +52,7 @@ function scheduleA()
     //loop through local storage and output the table row appending the child.
     for(var i = 0; i < 5; i++)
     {
-        var row = document.createElement("tr");
-        for(var j = 0; j < head.length; j++)
-        {
-            var cell = document.createElement("td");
-            var input = document.createElement("input");
-            input.setAttribute("type", "text");
-            input.setAttribute("class", head[j]);
-            cell.appendChild(input);
-            row.appendChild(cell);
-        }
-        newtable.appendChild(row);
+        makerow(newtable, head);
     }
     var totalrow = document.createElement("tr");
     totalrow.setAttribute("id", "total");

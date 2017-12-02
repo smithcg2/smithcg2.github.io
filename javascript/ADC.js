@@ -1,8 +1,9 @@
 function addRow()
 {
+    debugger;
     var table = document.getElementById('group');
 
-    var row = tbl.insertRow(table.rows.length - 1);
+    var row = table.insertRow(table.rows.length - 1);
 
 }
 

@@ -240,7 +240,7 @@ function clickHandler(event)
             savefields();
             goHome();
         }
-        else if(clicked.id == "addRow");
+        else if(clicked.id == "addRow")
         {
             addRow();
         }
