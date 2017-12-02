@@ -25,16 +25,13 @@
 <p id="instructions">Dynamically Inserted With Javascript.</p>
 <!--Dynamically Inserted With Javascript-->
 <div id="schedule">
-<table id="group">
-
-</table>
+<table id="group"></table>
 <!-- A table will be appended here with input elements showing the currently stored values as the default and allowing modification.
 <br>This will be filled in using jQuery and/or Javascript. -->
 </div>
+<button type = "button" id = "add" onclick = "addRow(this);">Add Row</button>
 </div>
-<button typw = "button" id = addRow"> 
-Add Row
-</button>
+
 <div id="bottomnav">
 <button type="button" id="back" class="nav">
 <!-- This area will have a click event handler to save the current fields to local storage and then reload the previos page -->

@@ -234,6 +234,10 @@ function clickHandler(event)
             savefields();
             goHome();
         }
+        else if(clicked.id == "addRow");
+        {
+            addRow();
+        }
         else if (clicked.parentNode.parentNode.id === "progresstable")
         {
             savefields();
