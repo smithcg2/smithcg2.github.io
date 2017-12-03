@@ -49,7 +49,7 @@ function initPage()
             submit.id = "save";
     var save = document.getElementById("save");
         next.style.display = "inline";
-        save.innerHTML = "SAVE";
+        save.innerHTML = "SAVE AND EXIT";
         }
     }
     //call init Schedule A, Schedule B, Schedule C, or Affirmation depending on current pageid.
@@ -75,6 +75,7 @@ function initPage()
     }
     makeTableScroll();
     dynamicElements();
+    appendAddButton();
 }
 
 
@@ -240,7 +241,7 @@ function clickHandler(event)
             savefields();
             goHome();
         }
-        else if(clicked.id == "addRow")
+        else if(clicked.id == "addrow")
         {
             addRow();
         }

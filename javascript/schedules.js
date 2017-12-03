@@ -2,6 +2,12 @@ var totalcost = parseInt(0);
 var totaladd = parseInt(0);
 var totaldel = parseInt(0);
 var totalb = parseInt(0);
+    
+var headA = ["Year Acquired", "Cost", "Additions", "Deletions"];
+var headB = ["Year", "Make", "Model", "Body/Size", "Title #", "Vehicle Identification Number", "Year Purchased", "Purchase Price"];
+var headB4 = ["Type", "Cost"];
+var headC = ["Name And Address Of Owner", "Description Of The Property", "Lease # Or Account #", "Monthly Payment", "Cost New (Quoted)", "Start Lease Date", "End Lease Date"];
+
 function makeTableScroll() {
     // Constant retrieved from server-side via JSP
     var maxRows = 8;
@@ -30,145 +36,66 @@ function makerow(table, elements)
             cell.appendChild(input);
             row.appendChild(cell);
         }
+        var del = $("<td class = 'delclr'>");
+        var delbutton = $("<button class = 'delrow' onclick='deleteRow(this)'>");
+        delbutton.text("DEL");
+        delbutton.appendTo(del);
+        del.appendTo(row);
+        var clear = $("<td class ='delclr'>");
+        var clearbutton = $("<button class = 'clrrow' onclick='clearRow(this)'>");
+        clearbutton.text("CLR");
+        clearbutton.appendTo(clear);
+        clear.appendTo(row);
         table.appendChild(row);
+}
+
+function makeGroup(array)
+{
+    var container = document.getElementById("schedule");
+    var newtable = document.createElement("table");
+    var headerrow = document.createElement("tr");
+    headerrow.setAttribute("id", "header");
+    for (var i = 0; i < array.length; i++)
+    {
+        var input = document.createTextNode(array[i]);
+        var cell = document.createElement("th");
+        cell.appendChild(input);
+        headerrow.appendChild(cell);
+    }
+    newtable.appendChild(headerrow);
+    newtable.setAttribute("id", "group");
+    var saved = JSON.parse(localStorage.getItem(pageid));
+    var savedlength = Object.keys(saved).length;
+    for(var i = 0; i < (savedlength + 1); i++)
+    {
+        makerow(newtable, array);
+    }
+    var totalrow = document.createElement("tr");
+    totalrow.setAttribute("id", "total");
+    newtable.appendChild(totalrow);
+    container.replaceChild(newtable, container.getElementsByTagName("table")[0]);
+    loadfields();
+    updateTotal();
 }
 
 function scheduleA()
 {
-    var container = document.getElementById("schedule");
-    var newtable = document.createElement("table");
-    var headerrow = document.createElement("tr");
-    headerrow.setAttribute("id", "header");
-    var head = ["Year Acquired", "Cost", "Additions", "Deletions"];
-    for (var i = 0; i < head.length; i++)
-    {
-        var input = document.createTextNode(head[i]);
-        var cell = document.createElement("th");
-        cell.appendChild(input);
-        headerrow.appendChild(cell);
-    }
-    newtable.appendChild(headerrow);
-    newtable.setAttribute("id", "group");
-    //loop through local storage and output the table row appending the child.
-    for(var i = 0; i < 5; i++)
-    {
-        makerow(newtable, head);
-    }
-    var totalrow = document.createElement("tr");
-    totalrow.setAttribute("id", "total");
-    newtable.appendChild(totalrow);
-    container.replaceChild(newtable, container.getElementsByTagName("table")[0]);
-    loadfields();
-    updateTotal();
+    makeGroup(headA);
 }
 
 function scheduleB()
 {
-    var container = document.getElementById("schedule");
-    var newtable = document.createElement("table");
-    var headerrow = document.createElement("tr");
-    headerrow.setAttribute("id", "header");
-    var head = ["Year", "Make", "Model", "Body/Size", "Title #", "Vehicle Identification Number", "Year Purchased", "Purchase Price"];
-    for (var i = 0; i < head.length; i++)
-    {
-        var input = document.createTextNode(head[i]);
-        var cell = document.createElement("th");
-        cell.appendChild(input);
-        headerrow.appendChild(cell);
-    }
-    newtable.appendChild(headerrow);
-    newtable.setAttribute("id", "group");
-    //loop through local storage and output the table row appending the child.
-    for(var i = 0; i < 5; i++)
-    {
-        var row = document.createElement("tr");
-        for(var j = 0; j < head.length; j++)
-        {
-            var cell = document.createElement("td");
-            var input = document.createElement("input");
-            input.setAttribute("type", "text");
-            input.setAttribute("class", head[j]);
-            cell.appendChild(input);
-            row.appendChild(cell);
-        }
-        newtable.appendChild(row);
-    }
-    container.replaceChild(newtable, container.getElementsByTagName("table")[0]);
-    loadfields();
+    makeGroup(headB);
 }
 
 function scheduleB4()
 {
-    var container = document.getElementById("schedule");
-    var newtable = document.createElement("table");
-    var headerrow = document.createElement("tr");
-    headerrow.setAttribute("id", "header");
-    var head = ["Type", "Cost"];
-    for (var i = 0; i < head.length; i++)
-    {
-        var input = document.createTextNode(head[i]);
-        var cell = document.createElement("th");
-        cell.appendChild(input);
-        headerrow.appendChild(cell);
-    }
-    newtable.appendChild(headerrow);
-    newtable.setAttribute("id", "group");
-    //loop through local storage and output the table row appending the child.
-    for(var i = 0; i < 5; i++)
-    {
-        var row = document.createElement("tr");
-        for(var j = 0; j < head.length; j++)
-        {
-            var cell = document.createElement("td");
-            var input = document.createElement("input");
-            input.setAttribute("type", "text");
-            input.setAttribute("class", head[j]);
-            cell.appendChild(input);
-            row.appendChild(cell);
-        }
-        newtable.appendChild(row);
-    }
-    var totalrow = document.createElement("tr");
-    totalrow.setAttribute("id", "total");
-    newtable.appendChild(totalrow);
-    container.replaceChild(newtable, container.getElementsByTagName("table")[0]);
-    loadfields();
-    updateTotal();
+    makeGroup(headB4);
 }
 
 function scheduleC()
 {
-    var container = document.getElementById("schedule");
-    var newtable = document.createElement("table");
-    var headerrow = document.createElement("tr");
-    headerrow.setAttribute("id", "header");
-    var head = ["Name And Address Of Owner", "Description Of The Property", "Lease # Or Account #", "Monthly Payment", "Cost New (Quoted)", "Start Lease Date", "End Lease Date"];
-    for (var i = 0; i < head.length; i++)
-    {
-        var input = document.createTextNode(head[i]);
-        var cell = document.createElement("th");
-        cell.appendChild(input);
-        headerrow.appendChild(cell);
-    }
-    newtable.appendChild(headerrow);
-    newtable.setAttribute("id", "group");
-    //loop through local storage and output the table row appending the child.
-    for(var i = 0; i < 5; i++)
-    {
-        var row = document.createElement("tr");
-        for(var j = 0; j < head.length; j++)
-        {
-            var cell = document.createElement("td");
-            var input = document.createElement("input");
-            input.setAttribute("type", "text");
-            input.setAttribute("class", head[j]);
-            cell.appendChild(input);
-            row.appendChild(cell);
-        }
-        newtable.appendChild(row);
-    }
-    container.replaceChild(newtable, container.getElementsByTagName("table")[0]);
-    loadfields();
+    makeGroup(headC);
 }
 
 function affirmation()
