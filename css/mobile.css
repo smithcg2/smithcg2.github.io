@@ -40,6 +40,11 @@
         //font-size: 70%;
     }
 
+    button
+    {
+        font-size: 70%;
+    }
+
     #start, #next, #save, #back, #SaveInfo
     {
         font-size: 90%;

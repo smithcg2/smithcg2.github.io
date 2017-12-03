@@ -108,7 +108,7 @@ body
     min-height: 70%;
 }
 
-#start, #next, #save, #back, #SaveInfo
+#start, #next, #save, #back, #SaveInfo, #submit
 {
     border-radius: 10px;
     padding: 10px;
@@ -119,14 +119,29 @@ body
     color: #242F40;
     cursor: pointer;
 }
-#add
+
+#addrow
 {
- border-radius: 10px;
-     padding: 10px;
-         text-align: center;
-             background-color: #CCA43B;
-  
+ //   border-radius: 0px;
+    padding: 10px;
+    text-align: center;
+    background-color: #CCA43B;
+//    width: 100%;
 }
+
+.delrow, .clrrow
+{
+    border-radius: 0px;
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+    margin: auto;
+}
+
+.delclr
+{
+}
+
 #SaveInfo
 {
     font-size: 75%;
