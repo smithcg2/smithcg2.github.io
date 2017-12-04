@@ -28,11 +28,16 @@ var instructions = {
     "have no leasehold improvements write none. Contact the appropriate county to " +
     "determine if you question if leasehold improvements have already been appraised as real " +
     "property. ",
-    a5: "",
-    a6: "",
-    a7: "",
-    a8: "",
-    a9: "",
+    a5: "This group includes any equipment rented from another source. Enter the year the equipment " +
+    "was aquired and the total amount it would have originally cost had the equipemnt been purchaed new.",
+    a6: "This group includes any heavy equipment owned by you as of January 1. List the cost of item when " +
+    "it was origianlly purchased. Examples include: bulldozers, mowers, and tractors",
+    a7: "This section includes any type of agricultural equipment owned by you as of January 1." +
+    "Examples: balers, tractors, dairy equipment, pumps, irrigation pipe, and fertilizer disributors.",
+    a8: "This section includes any signs and/or billboards used for your business.",
+    a9: "This section should only be used for any tangible personal property not already listed in " +
+    "sections 1 through 8. You CANNOT include any intangible personal property or househould goods that " +
+    "are not used for commercial puruposes. ",
     b1: "Motor Vehicles registered with the NC Department of Motor Vehicles as of January 1 " +
     "do not have to be listed. Please answer the questions on the form to determine if " +
     "you should complete and attach separate schedules B-1 for certain other vehicles, " +
@@ -63,7 +68,7 @@ var instructions = {
     "conditional sales contract, or if title to the property will transfer at the end of the lease due " +
     "to a nominal “purchase upon termination” fee, then the lessee is responsible for listing " +
     "under the appropriate group. ",
-    d1: "If the form is not signed by an authorized person,it will be rejected and could be subject to " +
+    d1: "If the form is not signed by an authorized person, it will be rejected and could be subject to " +
     "penalties. This section describes who may sign the listing form.\n" +
     "Listings submitted by mail shall be deemed to be filed as of the date shown on the " +
     "postmark affixed by the U.S. Postal Service. Any other indication of the date mailed (such " +
