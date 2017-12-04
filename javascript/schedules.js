@@ -19,7 +19,9 @@ function makerow(table, elements)
             {
                 input = yeardropdown();
             }
-            else if(elements[j].includes("Cost") || elements[j].includes("Price") || elements[j].includes("Additions") || elements[j].includes("Deletions"))
+            else if(elements[j].includes("Cost") || elements[j].includes("Price") 
+                || elements[j].includes("Additions") || elements[j].includes("Deletions")
+                || elements[j].includes("Payment"))
             {
                 input = currencyinput();
             }
