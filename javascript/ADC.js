@@ -23,6 +23,7 @@ function addRow()
     {
     table.appendChild(totalbackup);
     }
+    updateTotal();
 
 }
 
@@ -31,11 +32,14 @@ function deleteRow(row)
 {
     var i = row.parentNode.parentNode.rowIndex;
     var table = $("#group")[0];
-    table.deleteRow(i);
-    if($("input")[0] == null)
+    if(table.rows[i - 1].id == "header" && table.rows[i + 1].id == "total")
     {
-        addRow();
-        alert("You cannot delete the only row in this table.");
+        alert("You cannot delete the only row in this table. Use the clear button if you would like to remove the current values.");
+    }
+    else
+    {
+        table.deleteRow(i);
+        updateTotal();
     }
 }
 
