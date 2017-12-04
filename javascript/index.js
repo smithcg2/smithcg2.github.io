@@ -4,6 +4,7 @@ var categories = ["Retail", "Wholesale", "Manufacturing", "Service", "Leasing/Re
 var types = ["Corporation", "Sole Proprietorship", "Partnership", "Unincorporated Association", "Other"];
 
 function buildinfo(){
+    $("#start")[0].hidden = false;
     var container = $("#businfo");
     var subel = $("<div>", {id: "businfo"});
     $.each(labels, function(i, el) {
@@ -32,6 +33,7 @@ function saveinfo() {
 }
 
 function buildtable() {
+    $("#start")[0].hidden = true;
     var container = $("#businfo");
     var subel = $("<div>", {id: "businfo"});
     var table = $("<table>", {id: "bustable"});
@@ -102,7 +104,8 @@ function buildtable() {
 function init() {
    var needinfo = false;
    $.each(ids, function(key, value) {
-         if (localStorage.getItem(value) == null)
+       var data = localStorage.getItem(value);
+         if (data == null || data == "")
          {
              needinfo = true;
          }
@@ -117,26 +120,4 @@ function init() {
     });
 }
 
-function dynamicElements()
-{
-    footer();
-}
-
-function footer()
-{
-    var section = document.getElementById("businessinfo");
-    var footer = document.getElementById("bottomnav");
-
-    var overlap = section.getBoundingClientRect().bottom + 30 >= footer.getBoundingClientRect().top;
-    if(overlap || window.innerHeight <= 600)
-    {
-        footer.style.position = "relative";
-    }
-    else
-    {
-        footer.style.position = "absolute";
-    }
-}
-
 window.onload = init;
-window.addEventListener("resize", dynamicElements);

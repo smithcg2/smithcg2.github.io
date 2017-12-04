@@ -73,8 +73,6 @@ function initPage()
     {
         affirmation();
     }
-    makeTableScroll();
-    dynamicElements();
     appendAddButton();
 }
 
@@ -123,30 +121,6 @@ function buildProgressBar()
     container.replaceChild(newtable, container.getElementsByTagName("table")[0]);
 }
 
-/**
- * Function that will modify elements to make the page more mobile friendly or better to look at.
- */
-function dynamicElements()
-{
-    footer();
-}
-
-function footer()
-{
-    var section = document.getElementById("section");
-    var footer = document.getElementById("bottomnav");
-
-    var overlap = section.getBoundingClientRect().bottom + 30 >= footer.getBoundingClientRect().top;
-    if(overlap || window.innerHeight <= 600)
-    {
-        footer.style.position = "relative";
-    }
-    else
-    {
-        footer.style.position = "absolute";
-    }
-}
-
 function savefields()
 {
     var rowsToSave = {};
@@ -156,9 +130,9 @@ function savefields()
         if(value.id == "")
             {
             $.each(value.getElementsByTagName("td"), function(i, cell) {
-               if(cell.getElementsByTagName("input").length >= 1)
+               if(cell.children.length >= 1)
                {
-                    if(cell.getElementsByTagName("input")[0].value != "")
+                    if(cell.firstElementChild.value != "" && !(cell.firstElementChild.type.includes("select")))
                     {
                         saverow = true;
                     }
@@ -167,8 +141,8 @@ function savefields()
                 if(saverow)
                 {
                     var vals = [];
-                    $.each(value.getElementsByTagName("input"), function(index, val) {
-                        vals[index] = val.value;
+                    $.each(value.getElementsByTagName("td"), function(index, val) {
+                        vals[index] = val.firstElementChild.value;
                     });
                     rowsToSave[key] = vals;
                 }
@@ -187,10 +161,10 @@ function loadfields()
         for(row in data)
         {
             var curr = rows[row];
-            var inputs = curr.getElementsByTagName("input");
+            var inputs = curr.getElementsByTagName("td");
             for(value in data[row])
             {
-                inputs[value].value = data[row][value];
+                inputs[value].firstElementChild.value = data[row][value];
             }
         }
     }

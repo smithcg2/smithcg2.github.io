@@ -89,9 +89,8 @@ body
 #instructions
 {
     padding: 10px;
-    font-size: 70%;
+    font-size: 90%;
     text-align: justify;
-    //margin: 10px auto;
 }
 
 #businessinfo, #section
@@ -161,7 +160,7 @@ body
 
 #bottomnav
 {
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
