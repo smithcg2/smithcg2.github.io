@@ -74,6 +74,7 @@ function initPage()
         affirmation();
     }
     appendAddButton();
+    //$("#section").hide().fadeIn(1000);
 }
 
 
@@ -207,7 +208,6 @@ function clickHandler(event)
         else if (clicked.id === "submit")
         {
             savefields();
-            printform();
             goHome();
         }
         else if (clicked.id === "home")

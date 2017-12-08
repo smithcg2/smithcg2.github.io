@@ -84,7 +84,15 @@ function makeGroup(array)
     newtable.appendChild(headerrow);
     newtable.setAttribute("id", "group");
     var saved = JSON.parse(localStorage.getItem(pageid));
-    var savedlength = Object.keys(saved).length;
+    var savedlength;
+    if ( saved != null)
+    {
+        savedlength = Object.keys(saved).length;
+    }
+    else
+    {
+        savedlength = 0;
+    }
     for(var i = 0; i < (savedlength + 1); i++)
     {
         makerow(newtable, array);
